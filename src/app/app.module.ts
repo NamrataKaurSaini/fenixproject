@@ -11,6 +11,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { VisasComponent } from './pages/visas/visas.component';
 import { ServicesComponent } from './pages/services/services.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ServicesComponent } from './pages/services/services.component';
     AboutComponent,
     AdminLayoutComponent,
     VisasComponent,
-    ServicesComponent
+    ServicesComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
