@@ -5,6 +5,8 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { VisasComponent } from './pages/visas/visas.component';
+import { GalleryComponent } from './pages/gallery/gallery.component';
+
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -12,7 +14,8 @@ const routes: Routes = [
     {path: 'about', component: AboutComponent},
     {path: 'visas', component: VisasComponent},
     {path: 'services', component: ServicesComponent} ,
-    {path: 'contact', component: ContactComponent}
+    {path: 'contact', component: ContactComponent},
+    {path: 'gallery', component: GalleryComponent}
 ];
 
 @NgModule({

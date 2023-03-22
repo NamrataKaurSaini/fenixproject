@@ -13,6 +13,7 @@ import { ServicesComponent } from './pages/services/services.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './shared/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GalleryComponent } from './pages/gallery/gallery.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     VisasComponent,
     ServicesComponent,
     FooterComponent,
+    GalleryComponent,
    
   ],
   imports: [

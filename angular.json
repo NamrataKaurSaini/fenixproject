@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/fenixproject",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -48,7 +48,13 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "aot": true,
+              "vendorChunk": false,
+              "commonChunk": true,
+              "optimization": true,
+              "buildOptimizer": true,
+              "allowedCommonJsDependencies": []
             },
             "development": {
               "buildOptimizer": false,
