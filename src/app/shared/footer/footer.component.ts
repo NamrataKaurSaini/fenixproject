@@ -10,7 +10,7 @@ import { DbService } from 'src/app/services/db.service';
 export class FooterComponent implements OnInit {
 
   contactModelList: ContactModel[] = []
-  addressInfo: ContactModel = {};
+  addressInfo: any = {};
   loading: boolean = false;
   social: any = {};
 
@@ -19,20 +19,14 @@ export class FooterComponent implements OnInit {
   ){ }
 
   ngOnInit(): void {
-      
+      this.getData()
   }
 
   getData() {
-    let contactModelSub = this.dbService.addressModelSubject.subscribe((list) => {
-      if(list !== null) {
-        this.contactModelList = list.filter((x: { address: any; }): boolean => !x.address);
-        this.dbService.getWindowRef().setTimeout(() => contactModelSub.unsubscribe(), this.dbService.timeoutInterval)
-      }
-    })
-    let addressSub = this.dbService.addressModelSubject.subscribe((data: any) => {
+    let addressSub = this.dbService.addressSubject.subscribe((data: any) => {
       if (data != null) {
         this.loading = false;
-        this.addressInfo = data;
+        this.addressInfo = data;        
         this.dbService.getWindowRef().setTimeout(() => addressSub.unsubscribe(), this.dbService.timeoutInterval)
       }
     });

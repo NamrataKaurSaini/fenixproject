@@ -21,7 +21,7 @@ export class ContactComponent {
   contactList: ContactModel[] = [];
 
   contactModelList: ContactModel[] = [];
-  mainAddress: ContactModel = {}
+  mainAddress: any = {}
   mapLink!: SafeResourceUrl;
 
   collectionRef!: CollectionReference<DocumentData>
@@ -52,21 +52,10 @@ export class ContactComponent {
       date: [Timestamp.now()]
     })
 
-    let contactSub = this.dbService.addressModelSubject.subscribe((data) => {
-      if (data != null) {
-        data = data.map((e: any) => ({
-          ...e,
-          urlSafe: this.dbService.sanitizer.bypassSecurityTrustResourceUrl(e!.mapLink ?? "")
-        }))
-        // this.contactModelList = data.filter(x => !x.mainBranch).map(e => e);
-        this.dbService.getWindowRef().setTimeout(() => contactSub.unsubscribe(), this.dbService.timeoutInterval);
-      }
-    });
-
-    let mainAddressSub = this.dbService.addressModelSubject.subscribe(data => {
+     let mainAddressSub = this.dbService.addressSubject.subscribe(data => {
       if(data !== null) {
         this.mainAddress = { ...data }
-        this.mapLink = this.domSanitizer.bypassSecurityTrustResourceUrl(this.mainAddress?.mapLink ?? "");
+        this.mapLink = this.domSanitizer.bypassSecurityTrustResourceUrl("https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13794.60863861456!2d74.5009219!3d30.1899288!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39171783d35787f1%3A0x71b4aff0a6012a4a!2sFenix%20Immigration%20Services!5e0!3m2!1sen!2sin!4v1679997864484!5m2!1sen!2sin");
         this.dbService.getWindowRef().setTimeout(() => mainAddressSub.unsubscribe(), this.dbService.timeoutInterval);
       }
     })

@@ -31,7 +31,7 @@ export class DbService {
     servicesModelSubject = new BehaviorSubject<any[]>([]);
 
   //Footer Content
-    addressModelSubject = new BehaviorSubject<any>(null);
+    addressSubject = new BehaviorSubject<any>(null);
 
   // Social Link, Quote
     socialSubject = new BehaviorSubject<any>(null);
@@ -131,10 +131,7 @@ export class DbService {
     })
   }
 
-  async getSocialUrl() {
-    let docRef = await getDoc(doc(this.getCollectionRef(CONSTANTS.SOCIAL_COLLECTION), CONSTANTS.SOCIAL_COLLECTION));
-    this.socialSubject.next(docRef.data());
-  }
+
 
   getHomeVisas() {
     let queryRef = query(
@@ -153,17 +150,14 @@ export class DbService {
   }
   
   getAllServices() {
+    let lastDoc = this.serviceLastDoc.value;
     let queryRef = query(
       this.getQueryRef(CONSTANTS.SERVICES_COLLECTION, 'serviceStatus', 'addedOn', true),
-      limit(this.$DOC_LIMIT)
+      startAfter(lastDoc)
     );
 
     const unsub = onSnapshot(queryRef, (snapshot) => {
-      this.isServicesAvailable = snapshot.size === this.$HOME_DOC_LIMIT
-      this.serviceSubject.next(snapshot.docs.map((ele) => {
-        this.serviceLastDoc.next(ele);
-        return ele.data();
-      }));
+      this.serviceSubject.next(snapshot.docs.map(ele => ele.data()))
       this.getWindowRef().setTimeout(() => unsub(), this.timeoutInterval * 6);
     })
   }
@@ -184,17 +178,14 @@ export class DbService {
   }
 
   getAllVisas() {
+    let lastDoc = this.visaLastDoc.value
     let queryRef = query(
       this.getQueryRef(CONSTANTS.VISAS_COLLECTION, 'visaStatus', 'addedOn', true),
-      limit(this.$DOC_LIMIT)
-    );
+      startAfter(lastDoc)
+      );
 
     const unsub = onSnapshot(queryRef, (snapshot) => {
-      this.isVisasAvailable = snapshot.size === this.$HOME_DOC_LIMIT
-      this.visaSubject.next(snapshot.docs.map((ele) => {
-        this.visaLastDoc.next(ele);
-        return ele.data();
-      }));
+      this.visaSubject.next(snapshot.docs.map(ele => ele.data()));
       this.getWindowRef().setTimeout(() => unsub(), this.timeoutInterval * 6);
     })
   }
@@ -215,17 +206,13 @@ export class DbService {
     })
   }
 
-  getAddress(){
-    let unsub = onSnapshot(this.getQueryRef(CONSTANTS.CONTACT_COLLECTION,'contactStatus','addedOn'), (snapshot) => {
-      let list = snapshot.docs.map(e => {
-        let data = { ...e.data() as ContactModel }
-        return {
-          ...data,
-          addressUrlId: data.title?.toLowerCase().replace(/ /g, '-')
-        }
-      })
-      this.addressModelSubject.next(list.filter(x => x.address))
-      this.getWindowRef().setTimeout(() => unsub(),this.timeoutInterval*6)
-    })
+  async getAddress(){
+    let docRef = await getDoc(doc(this.getCollectionRef(CONSTANTS.ADDRESS_COLLECTION), CONSTANTS.ADDRESS_COLLECTION));
+    this.addressSubject.next(docRef.data());
+  }
+
+  async getSocialUrl() {
+    let docRef = await getDoc(doc(this.getCollectionRef(CONSTANTS.SOCIAL_COLLECTION), CONSTANTS.SOCIAL_COLLECTION));
+    this.socialSubject.next(docRef.data());
   }
 }

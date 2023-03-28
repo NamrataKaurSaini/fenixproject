@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   @Input() inModalBool: boolean = false;
   
-  enquiryForm: FormGroup = new FormGroup({});
+  enquiryForm!: FormGroup
   galleryList: any[] = [];
   reviewsList: any[] = [];
   servicesList: any[] = [];
@@ -32,47 +32,41 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getDataFromDbService()
-    this.initEnquiryForm()
+    // this.initEnquiryForm()
+    this.enquiryForm = this.fb.group
+    ({
+      enqueryId: [doc(collection(this.firestore, "enqueries")).id],
+      name: ["", [Validators.required, Validators.pattern("[a-zA-Z ]*")]],
+      email: ["",[Validators.required, Validators.email] ],
+      phone: [""]
+    })
   }
 
   async onSubmitEnquiry() {
-    if(this.enquiryForm.invalid) {
-      this.enquiryForm.markAllAsTouched();
-      return;
-    }
 
-    if(this.selectedServices.length === 0) {
-      this.toast.warning("Please select atleat 1 service", "")
-      return;
-    }
     let values = { ...this.enquiryForm.value };
-    values.services = [...this.selectedServices];
 
-    let docRef = doc(this.firestore, `enquries/${values.appointmentId}`);
-    setDoc(docRef, { ...values }, { merge: true})
+    let docRef = doc(this.firestore, `enqueries/${values.enqueryId}`);
+    setDoc(docRef, { ...values })
       .then(() => {
-        if(this.inModalBool) this.modal.dismissAll();
         this.toast.success("Enquiry Submitted", "Success");
-        this.initEnquiryForm();
+        console.log(values)
+        this.enquiryForm.reset()
+        // this.initEnquiryForm();
       }, (error) => {
-        if(this.inModalBool) this.modal.dismissAll();
         this.toast.error("Something went wrong", "Failed")
         return true;
       });
   }
 
-  initEnquiryForm() {
-    this.selectedServices = ["IELTS"];
-    this.enquiryForm = this.fb.group({
-      appointmentId: [doc(collection(this.firestore, 'enquries')).id],
-      name: ["", [Validators.required, Validators.pattern("[a-zA-Z ]*")]],
-      phone: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern("[0-9]{10}$")]],
-      email: ["", [Validators.required, Validators.email]],
-      timestamp: [Timestamp.now()],
-      message: [""],
-      requestCallback: [true],
-    });
-  }
+  // initEnquiryForm() {
+  //   this.enquiryForm = this.fb.group({
+  //     name: ["", [Validators.required, Validators.pattern("[a-zA-Z ]*")]],
+  //     phone: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern("[0-9]{10}$")]],
+  //     email: ["", [Validators.required, Validators.email]],
+  //     timestamp: [Timestamp.now()],
+  //   });
+  // }
   
   getDataFromDbService(){
 

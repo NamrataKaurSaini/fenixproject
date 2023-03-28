@@ -1,7 +1,7 @@
 <div class="container-fluid m-0 p-0 ">
-  <div class="bg-image px-4 py-3"
+  <div class="bg-image px-3 py-4"
     style="background-image: url('https://skylighteducation.in/img/home-slider/slider-7.jpg'); background-position: center center; background-repeat: no-repeat; background-size: cover;">
-    <div class="row p-4">
+    <div class="row px-lg-4 px-sm-2 py-3">
       <div class="col-12 col-md-8 mt-sm-5">
         <div class="text-white px-3 ms-lg-5 mt-3">
           <h1>Best Solution to all </h1>
@@ -15,43 +15,43 @@
           <div class="card-header border-0 ">
             <h4>Enquire Now</h4>
           </div>
+
           <form [formGroup]="enquiryForm" (ngSubmit)="onSubmitEnquiry()">
             <div class="card-body">       
               <div class="mb-3">
                 <label for="name" class="form-label" for="name">Name</label>
-                <input type="text" name="name" formControlName="name"  class="form-control" id="name" placeholder="Name"
-                [class.invalid]="enquiryForm.get('name')?.invalid && ( enquiryForm.get('name')?.dirty || enquiryForm.get('name')?.touched )">
-                <div class="text-danger mt-1" style="font-size: 12px;"
-                  *ngIf="enquiryForm.get('name')?.invalid && ( enquiryForm.get('name')?.dirty || enquiryForm.get('name')?.touched )">
+                <input type="text" name="name" formControlName="name"  class="form-control" id="name" placeholder="Name">
+                <div class="text-danger mt-1" style="font-size: 12px;" *ngIf="enquiryForm.get('name')?.invalid && ( enquiryForm.get('name')?.dirty || enquiryForm.get('name')?.touched )">
                   <div *ngIf="enquiryForm.get('name')?.hasError('required')">Name is Required</div>
                   <div *ngIf="enquiryForm.get('name')?.hasError('pattern')">Only Alphabets</div>
                 </div>
               </div>
+
               <div class="mb-3">
                 <label for="email" class="form-label" for="email">Email</label>
-                <input type="email" name="email" formControlName="email" class="form-control" id="email" placeholder="Email"
-                [class.invalid]="enquiryForm.get('email')?.invalid && ( enquiryForm.get('email')?.dirty || enquiryForm.get('email')?.touched )">
-                <div class="text-danger mt-1" style="font-size: 12px;"
-                  *ngIf="enquiryForm.get('email')?.invalid && ( enquiryForm.get('email')?.dirty || enquiryForm.get('email')?.touched )">
+                <input type="email" name="email" formControlName="email" class="form-control" id="email" placeholder="Email">
+                <div class="text-danger mt-1" style="font-size: 12px;" *ngIf="enquiryForm.get('email')?.invalid && ( enquiryForm.get('email')?.dirty || enquiryForm.get('email')?.touched )">
                   <div *ngIf="enquiryForm.get('email')?.hasError('required')">Email is Required</div>
                   <div *ngIf="enquiryForm.get('email')?.hasError('email')">Email is badly formatted</div>
                 </div>
               </div>
+
               <div class="mb-3">
-                <label for="contact" class="form-label" for="phone">Contact No.</label>
-                <input type="contact" name="phone" forControlName="phone" class="form-control" id="contact" placeholder="Contact number"
-                [class.invalid]="enquiryForm.get('phone')?.invalid && ( enquiryForm.get('phone')?.dirty || enquiryForm.get('phone')?.touched )">
-                <div class="text-danger mt-1" style="font-size: 12px;"
-                  *ngIf="enquiryForm.get('phone')?.invalid && ( enquiryForm.get('phone')?.dirty || enquiryForm.get('phone')?.touched )">
+                <label for="phone" class="form-label" for="phone">Contact No</label>
+                <input type="phone" name="phone" formControlName="phone" class="form-control" id="phone" placeholder="Contact No">
+                <div class="text-danger mt-1" style="font-size: 12px;" *ngIf="enquiryForm.get('phone')?.invalid && ( enquiryForm.get('phone')?.dirty || enquiryForm.get('phone')?.touched )">
                   <div *ngIf="enquiryForm.get('phone')?.hasError('required')">Phone is Required</div>
-                  <div *ngIf="enquiryForm.get('phone')?.hasError('pattern') || enquiryForm.get('phone')?.hasError('maxlength') || enquiryForm.get('phone')?.hasError('minlength')">
-                    Enter 10 digits valid phone number
+                  <div *ngIf="enquiryForm.get('phone')?.hasError('pattern')  || enquiryForm.get('phone')?.hasError('maxlength') || enquiryForm.get('phone')?.hasError('minlength')">Enter 10 digits valid phone number
                   </div>
                 </div>
               </div>
+
+              
+
               <div class="text-end">
                 <button type="submit" class=" btn btn-outline-primary">Submit</button>
               </div>
+
             </div>
           </form>
         </div>
