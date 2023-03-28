@@ -1,21 +1,22 @@
 <footer class="footer py-5" style="background-color: rgb(2, 9, 44);">
   <div class="container-fluid">
-    <div class="row">
+    <div class="row my-2">
       <div class="col-12 col-md-6">
-        <img src="assets\img\fenixLogoWithTextInWhite.png" width="150" height="50" style="margin-left:50px;">
-        <h4 class="text-white ms-5">Fenix Immigration Services</h4>
-        <p class="d-block mb-3 ms-5 text-white" style="margin-left:40px">Providing personalized solutions to individuals
+        <div class="d-flex flex-column justify-content-right align-items-right" style="height:100%; padding:inherit" >
+          <img src="assets\img\fenixLogoWithTextInWhite.png" width="150" height="50">
+        <h4 class="text-white">Fenix Immigration Services</h4>
+        <p class="d-block mb-3 text-white">Providing personalized solutions to individuals
           and families seeking to immigrate and get visa assistance.</p>
-      </div>
+        </div>
+        </div>
+        
       <div class="col-12 col-md-6 text-white">
         <div class="d-flex flex-column justify-content-end align-items-end" style="height: 100%; padding: inherit;">
           <h5>Official Info</h5>
         <ul class="list-unstyled text-small text-end">
-          <li><a class="link-secondary text-white" style="text-decoration:none;" href="#">Call us: +91 1234567890</a>
-          </li>
-          <li><a class="link-secondary text-white" style="text-decoration:none;" href="#">Email: info@fenix.com</a></li>
-          <li><a class="link-secondary text-white" style="text-decoration:none;" href="#">Address: ABC Building, ABC
-              Street </a></li>
+          <li><a class="link-secondary text-white" style="text-decoration:none;" href="{{'tel:+91'+addressInfo.phone}}">Call us: {{addressInfo.phone || ""}}</a></li>
+          <li><a class="link-secondary text-white" style="text-decoration:none;" href="{{'mailto:'+addressInfo.email}}">Email: {{addressInfo.email || ""}}</a></li>
+          <li><span class="link-secondary text-white" style="text-decoration:none;">Address: {{addressInfo.address}} </span></li>
         </ul>
         </div>
         
