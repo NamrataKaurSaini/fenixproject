@@ -49,7 +49,13 @@ export class DbService {
   // Gallery with LastDoc
     homeGallerySubject = new BehaviorSubject<any[]>([])
     gallerySubject = new BehaviorSubject<any[]>([]);
-    galleryLastDoc = new BehaviorSubject<QueryDocumentSnapshot<DocumentData> | null>(null);
+    // galleryLastDoc = new BehaviorSubject<QueryDocumentSnapshot<DocumentData> | null>(null);
+
+    instituteGallerySubject = new BehaviorSubject<any[]>([])
+    institutegallerySubject = new BehaviorSubject<any[]>([]);
+
+    resultGallerySubject = new BehaviorSubject<any[]>([])
+    resultgallerySubject = new BehaviorSubject<any[]>([]);
 
   // Testimonials with LastDoc
     testimonialSubject = new BehaviorSubject<any[]>([]);
@@ -76,8 +82,9 @@ export class DbService {
     this.getHomeServices()
     this.getAllVisas()
     this.getHomeVisas()
-    this.getHomeGallery()
-    this.getAllGalleryImages()
+    this.getGalleryImages()
+    this.getInstituteGallery()
+    this.getResultGallery()
     this.getTestimonials()
     this.getAddress()
   }
@@ -101,35 +108,67 @@ export class DbService {
     this.getAllVisas()
   }
 
-    // Get Gallery Data for Home Page and Sub Page
-  getHomeGallery() {
+
+  getGalleryImages() {
     let queryRef = query(
       this.getQueryRef(CONSTANTS.GALLERY_COLLECTION, 'galleryStatus', 'addedOn', true),
-      limit(this.$HOME_DOC_LIMIT)
+      // limit(this.$HOME_DOC_LIMIT)
     );
   
     const unsub = onSnapshot(queryRef, (snapshot) => {
-      this.isImagesAvailable = snapshot.size === this.$HOME_DOC_LIMIT
+      // this.isImagesAvailable = snapshot.size === this.$HOME_DOC_LIMIT
       this.homeGallerySubject.next(snapshot.docs.map((ele) => {
-        this.galleryLastDoc.next(ele);
+        // this.galleryLastDoc.next(ele);
         return ele.data();
       }));
       this.getWindowRef().setTimeout(() => unsub(), this.timeoutInterval * 6);
     })
   }
 
-  getAllGalleryImages() {
-    let lastDoc = this.galleryLastDoc.value;
+  getInstituteGallery() {
     let queryRef = query(
-      this.getQueryRef(CONSTANTS.GALLERY_COLLECTION, 'galleryStatus', 'addedOn', true),
-      startAfter(lastDoc)
+      this.getQueryRef(CONSTANTS.INSTITUTE_GALLERY_COLLECTION, 'galleryStatus', 'addedOn', true),
+      // limit(this.$HOME_DOC_LIMIT)
     );
-
+  
     const unsub = onSnapshot(queryRef, (snapshot) => {
-      this.gallerySubject.next(snapshot.docs.map(e => e.data()));
+      // this.isImagesAvailable = snapshot.size === this.$HOME_DOC_LIMIT
+      this.instituteGallerySubject.next(snapshot.docs.map((ele) => {
+        // this.galleryLastDoc.next(ele);
+        return ele.data();
+      }));
       this.getWindowRef().setTimeout(() => unsub(), this.timeoutInterval * 6);
     })
   }
+
+  getResultGallery() {
+    let queryRef = query(
+      this.getQueryRef(CONSTANTS.RESULT_GALLERY_COLLECTION, 'galleryStatus', 'addedOn', true),
+      // limit(this.$HOME_DOC_LIMIT)
+    );
+  
+    const unsub = onSnapshot(queryRef, (snapshot) => {
+      // this.isImagesAvailable = snapshot.size === this.$HOME_DOC_LIMIT
+      this.resultGallerySubject.next(snapshot.docs.map((ele) => {
+        // this.galleryLastDoc.next(ele);
+        return ele.data();
+      }));
+      this.getWindowRef().setTimeout(() => unsub(), this.timeoutInterval * 6);
+    })
+  }
+
+  // getAllGalleryImages() {
+  //   let lastDoc = this.galleryLastDoc.value;
+  //   let queryRef = query(
+  //     this.getQueryRef(CONSTANTS.GALLERY_COLLECTION, 'galleryStatus', 'addedOn', true),
+  //     startAfter(lastDoc)
+  //   );
+
+  //   const unsub = onSnapshot(queryRef, (snapshot) => {
+  //     this.gallerySubject.next(snapshot.docs.map(e => e.data()));
+  //     this.getWindowRef().setTimeout(() => unsub(), this.timeoutInterval * 6);
+  //   })
+  // }
 
 
 

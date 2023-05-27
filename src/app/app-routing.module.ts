@@ -6,6 +6,8 @@ import { GalleryComponent } from './pages/gallery/gallery.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { VisasComponent } from './pages/visas/visas.component';
+import { GalleryInstituteComponent } from './pages/gallery-institute/gallery-institute.component';
+import { GalleryResultsComponent } from './pages/gallery-results/gallery-results.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,6 +16,9 @@ const routes: Routes = [
     {path: 'visas', component: VisasComponent},
     {path: 'services', component: ServicesComponent} ,
     {path: 'contact', component: ContactComponent},
+
+    {path: 'institute', component: GalleryInstituteComponent},
+    {path: 'result', component: GalleryResultsComponent},
     {path: 'gallery', component: GalleryComponent}
 ];
 

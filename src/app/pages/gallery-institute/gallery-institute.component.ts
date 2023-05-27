@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { DbService } from 'src/app/services/db.service';
 
 @Component({
-  selector: 'app-gallery',
-  templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.css']
+  selector: 'app-gallery-institute',
+  templateUrl: './gallery-institute.component.html',
+  styleUrls: ['./gallery-institute.component.css']
 })
-export class GalleryComponent implements OnInit {
+export class GalleryInstituteComponent {
 
   galleryList: any[] = []
 
@@ -19,10 +19,10 @@ export class GalleryComponent implements OnInit {
   }
 
   getInitialData() {
-    let sub = this.dbService.homeGallerySubject.subscribe((value) => {
+    let sub = this.dbService.instituteGallerySubject.subscribe((value) => {
       if(value.length !== 0) {
         this.galleryList = [...value];
-        this.dbService.getGalleryImages();
+        this.dbService.getInstituteGallery();
         this.dbService.getWindowRef().setTimeout(() => sub.unsubscribe(), this.dbService.timeoutInterval * 6) // 60 seconds
       }
     })

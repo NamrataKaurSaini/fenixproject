@@ -19,6 +19,8 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { ToastrModule } from 'ngx-toastr';
 import { environment } from 'src/environments/environment.development';
+import { GalleryInstituteComponent } from './pages/gallery-institute/gallery-institute.component';
+import { GalleryResultsComponent } from './pages/gallery-results/gallery-results.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { environment } from 'src/environments/environment.development';
     VisasComponent,
     ServicesComponent,
     FooterComponent,
-    GalleryComponent
+    GalleryComponent,
+    GalleryInstituteComponent,
+    GalleryResultsComponent
   ],
   imports: [
     BrowserModule,
