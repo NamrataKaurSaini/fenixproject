@@ -1,7 +1,7 @@
 <div class="container-fluid m-0 p-0 ">
   <div class="bg-image p-5 "
     style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'); background-position: center center; background-repeat: no-repeat; background-size: cover;">
-    <div class="fw-bold text-center text-white p-lg-5 mx-auto my-5">
+    <div class="fw-bold text-center text-white p-lg-5 mx-auto my-5 animated fadeInDown">
       <h1 class="">OUR SERVICES</h1>
     </div>
   </div>
@@ -11,157 +11,51 @@
 
 
 <div class="container mt-5">
-  <div class=" text-center my-4">
-    <h2 class="h1 text-center">Services We Provide ...</h2>
+  <div class=" text-center my-5">
+    <h2 class="h1 text-center">Services We Provide</h2>
+    <p class="lead fw-light mt-4">Fenix offers free consultations to individuals who are looking to retain a visa but have some questions before 
+      making a decision. This free case evaluation service allows prospective clients to contact
+       us and understand what services we can offer. This is an opportunity for prospective clients to learn about their immigration
+        options and how Fenix immigration can help them. </p>
   </div>
 </div>
 
-
-
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-sm-6 col-lg-4 mb-3" *ngFor="let ele of servicesList">
-      <div class="card card-1 ">
-        <div class="card-body">
-          <div class="fw-bold fs-6">
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-              class="bi bi-person-vcard" style="color: rgb(3, 22, 112)" viewBox="0 0 16 16">
-              <path
-                d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5ZM9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8Zm1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Z" />
-              <path
-                d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96c.026-.163.04-.33.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1.006 1.006 0 0 1 1 12V4Z" />
-            </svg>&nbsp; -->
-            {{ele?.title || ''}}
-          </div>&nbsp;
-          <p class="card-text">{{ele?.description || ''}}</p>
+<div class="container pb-5">
+  <div class="row animated fadeInUp">
+    <div class="col-12 col-sm-6 col-lg-4 mb-3" *ngFor="let services of servicesList">
+      <div class="card card-1 mb-3 shadow-lg" style=" border-color: rgb(3, 22, 112);">
+        <div class="card-body p-4">
+          <div class="fw-bold fs-6"> {{services.title}}</div>&nbsp; 
+          <p class="card-text">{{services.description}}</p>
         </div>
       </div>
     </div>
-
-    <!-- <div class="col-12 col-sm-6 col-lg-4 mb-3">
-      <div class="card card-1 ">
-        <div class="card-body">
-          <div class="fw-bold fs-6">
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-              class="bi bi-briefcase" style="color: rgb(3, 22, 112)" viewBox="0 0 16 16">
-              <path
-                d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5zm1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0zM1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5z" />
-            </svg> DOCUMENTATION ASSISTANCE  </div>&nbsp;
-          <p class="card-text">We provide documents assistance to our students regarding their admission/offer letter
-            and also for visa</p>
-          <div><i class="fa-solid fa-skating fa-fw" style="background:DodgerBlue"></i></div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- <div class="col-12 col-sm-6 col-lg-4 mb-3">
-      <div class="card card-2">
-        <div class="card-body">
-          <div class="fw-bold fs-6">
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-              class="bi bi-window-stack" style="color: rgb(3, 22, 112)" viewBox="0 0 16 16">
-              <path
-                d="M4.5 6a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1ZM6 6a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm2-.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Z" />
-              <path
-                d="M12 1a2 2 0 0 1 2 2 2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2 2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h10ZM2 12V5a2 2 0 0 1 2-2h9a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1Zm1-4v5a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V8H3Zm12-1V5a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v2h12Z" />
-            </svg>
-            &nbsp;
-            DEPARTURE ASSISTANCE </div>&nbsp;
-          <p class="card-text">Pre-departure Assistance, Departure and Arrival Assistance, Scholarship Assistance,
-            Departure and Arrival Assistance.</p>
-          <div><i class="fa-solid fa-skating fa-fw" style="background:DodgerBlue"></i> </div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- <div class="col-12 col-sm-6 col-lg-4 mb-3">
-      <div class="card card-3 ">
-        <div class="card-body">
-          <div class="fw-bold fs-6">
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-              class="bi bi-journals" style="color: rgb(3, 22, 112)" viewBox="0 0 16 16">
-              <path
-                d="M5 0h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2 2 2 0 0 1-2 2H3a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1H1a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v9a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1H3a2 2 0 0 1 2-2z" />
-              <path
-                d="M1 6v-.5a.5.5 0 0 1 1 0V6h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 3v-.5a.5.5 0 0 1 1 0V9h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H1zm0 2.5v.5H.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1H2v-.5a.5.5 0 0 0-1 0z" />
-            </svg> 
-            VISA AND ADMISSION ASSISTANCE</div>&nbsp;
-          <p class="card-text">Visa Assistance, Documentation Assistance, Assistance in Admission process, Medical
-            Assistance, Visa Filing Assistance</p>
-          <div><i class="fa-solid fa-skating fa-fw" style="background:DodgerBlue"></i></div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- <div class="col-12 col-sm-6 col-lg-4 mb-3">
-      <div class="card card-2 ">
-        <div class="card-body">
-          <div class="fw-bold fs-6">
-            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-              class="bi bi-clipboard2-check" style="color: rgb(3, 22, 112)" viewBox="0 0 16 16">
-              <path
-                d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z" />
-              <path
-                d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z" />
-              <path
-                d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3Z" />
-            </svg>
-            HEALTH CHECKUP PROCESS</div> &nbsp;
-          <p class="card-text"> Provide Assistance in prepare documents required for the medical before the visa. Every
-            country Required Medical Certificate along with other documents</p>
-          <div><i class="fa-solid fa-skating fa-fw" style="background:DodgerBlue"></i> </div>
-        </div>
-      </div>
-    </div> -->
-
-    <!-- <div class="col-12 col-sm-6 col-lg-4 mb-3">
-      <div class="card card-2 ">
-        <div class="card-body">
-          <div class="fw-bold fs-6">
-             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-              class="bi bi-clipboard2-check" style="color: rgb(3, 22, 112)" viewBox="0 0 16 16">
-              <path
-                d="M9.5 0a.5.5 0 0 1 .5.5.5.5 0 0 0 .5.5.5.5 0 0 1 .5.5V2a.5.5 0 0 1-.5.5h-5A.5.5 0 0 1 5 2v-.5a.5.5 0 0 1 .5-.5.5.5 0 0 0 .5-.5.5.5 0 0 1 .5-.5h3Z" />
-              <path
-                d="M3 2.5a.5.5 0 0 1 .5-.5H4a.5.5 0 0 0 0-1h-.5A1.5 1.5 0 0 0 2 2.5v12A1.5 1.5 0 0 0 3.5 16h9a1.5 1.5 0 0 0 1.5-1.5v-12A1.5 1.5 0 0 0 12.5 1H12a.5.5 0 0 0 0 1h.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-12Z" />
-              <path
-                d="M10.854 7.854a.5.5 0 0 0-.708-.708L7.5 9.793 6.354 8.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3Z" />
-            </svg> &nbsp;  
-            EXAM ASSISTANCE</div> &nbsp;
-          <p class="card-text"> Provide Assistance in prepare documents required for the medical before the visa. Every
-            country Required Medical Certificate along with other documents</p>
-          <div><i class="fa-solid fa-skating fa-fw" style="background:DodgerBlue"></i> </div>
-        </div>
-      </div>
-    </div> -->
   </div>
 
 </div>
 
 
 
-<!-- <div class="container">
-  <div class="text-center mt-5">
-    <h1 class=" text-muted">TESTIMONIALS</h1><br>
-  </div>
-
-  <div class="row">
-    <div class="slider col-12 text-center">
-      <div id="carouselExampleControls" class="carousel slide text-center carousel-dark p-4" data-bs-ride="carousel"  >
-        <div class="carousel-inner mb-4 pb-3 px-3">
-          <div class="carousel-item active" *ngFor="let testimonials of testimonialList; index as idx">
-            <div class="row d-flex justify-content-center">
-              <div class="col-lg-8">
-                <h5 class="my-3">{{testimonials.title}}</h5>
+<div class="container mt-2 my-4 ">
+  <div class="row  ">
+    <div class="slider col-12 text-center mb-3">
+      <ngb-carousel [interval]="4500" [keyboard]="true" [wrap]="true" [animation]="true" [showNavigationIndicators]="false" [showNavigationArrows]="true">
+        <ng-template ngbSlide *ngFor="let testimonial of testimonialList" class="rounded">
+          <div class="rounded">
+            <img loading="eager" class="rounded-circle shadow-1-strong my-4" [src]="testimonial.imageUrl" style="width: 80px;">
+            <div class=" row d-flex justify-content-center ">
+              <div class="col-lg-3" style="width: 100%">
+                <h5 class="my-3">{{testimonial.title}}</h5>
                 <p class="text-muted">
-                  "{{testimonials.description}}"
+                  <i class="fas fa-quote-left pe-2" style="font-size: 20px;"></i>
+                  "{{testimonial.description}}"
                 </p>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </div> 
+        </ng-template>
+       </ngb-carousel>
     </div>
   </div>
+</div>
 
-</div> -->

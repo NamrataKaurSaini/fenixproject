@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark w-100" style="background-color: #020932">
+<nav class="navbar  navbar-expand-lg navbar-dark w-100" style="background-color: #020932; ">
   <div class="container-fluid d-flex justify-content-between">
-    <a class="navbar-brand" href="#"><img src="assets\img\fenixLogoWithTextInWhite.png" width="200px" height="70px"></a>
+    <a class="navbar-brand  " href="#"><img src="assets\img\fenixLogoWithTextInWhite.png" width="200px" height="70px"></a>
 
     <button class="navbar-toggler btn " type="button" data-bs-toggle="collapse" (click)="isMenuCollapsed = !isMenuCollapsed">
       <span class="navbar-toggler-icon"></span>
@@ -8,30 +8,37 @@
 
     <div class="collapse navbar-collapse w-100" id="navbarSupportedContent" [ngbCollapse]="isMenuCollapsed">
       <div class="d-flex justify-content-lg-end w-100">
-        <ul class="h6 navbar-nav ">
-          <li class="nav-item">
+        <ul class="h5 navbar-nav nav-list" style="font-weight: 3px;">
+
+          <li class="nav-list-item">
             <a class="nav-link text-white " routerLinkActive="is-active"  routerLink="/home" [routerLinkActiveOptions]="{exact:true}">Home</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-list-item">
             <a class="nav-link text-white " routerLinkActive="is-active"  routerLink="/about">About Us</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" routerLinkActive="is-active"  routerLink="/visas">Visas</a>
+          <li class="nav-list-item">
+            <a class="nav-link text-white" routerLinkActive="is-active"  routerLink="/visas">Visa Information</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link text-white " routerLinkActive="is-active"  routerLink="/gallery">Gallery</a>
+          <li class="nav-list-item">
+            <div class="dropdown">
+              <a class="nav-link text-white" data-bs-toggle="dropdown"> Gallery </a>
+              <div class="dropdown-menu ">
+                <a class="dropdown-item" routerLink="/institute" routerLinkActive="is-active">Institute</a>
+                <a class="dropdown-item" routerLink="/gallery" routerLinkActive="is-active">Visa</a>
+                <a class="dropdown-item" routerLink="/result" routerLinkActive="is-active">Results</a>
+              </div>
+            </div>
           </li>
-          <li class="nav-item">
+          <li class="nav-list-item">
             <a class="nav-link text-white" routerLinkActive="is-active" routerLink="/services">Our Services</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-list-item">
             <a class="nav-link text-white" routerLinkActive="is-active"  routerLink="/contact">Contact Us</a>
           </li>
+  
         </ul>
 
       </div>
     </div>
-    <!-- <div class="container-fluid mx-3 d-flex flex-row flex-lg-column justify-content-between align-items-end" >
-    </div> -->
   </div>
 </nav>

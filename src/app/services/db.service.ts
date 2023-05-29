@@ -78,8 +78,8 @@ export class DbService {
     private modalService: NgbModal
   ) { 
     this.getSocialUrl();
+    this.getHomeServices();
     this.getAllServices();
-    this.getHomeServices()
     this.getAllVisas()
     this.getHomeVisas()
     this.getGalleryImages()
@@ -188,18 +188,6 @@ export class DbService {
     })
   }
   
-  getAllServices() {
-    let lastDoc = this.serviceLastDoc.value;
-    let queryRef = query(
-      this.getQueryRef(CONSTANTS.SERVICES_COLLECTION, 'serviceStatus', 'addedOn', true),
-      startAfter(lastDoc)
-    );
-
-    const unsub = onSnapshot(queryRef, (snapshot) => {
-      this.serviceSubject.next(snapshot.docs.map(ele => ele.data()))
-      this.getWindowRef().setTimeout(() => unsub(), this.timeoutInterval * 6);
-    })
-  }
   getHomeServices() {
     let queryRef = query(
       this.getQueryRef(CONSTANTS.SERVICES_COLLECTION, 'serviceStatus', 'addedOn', true),
@@ -215,6 +203,20 @@ export class DbService {
       this.getWindowRef().setTimeout(() => unsub(), this.timeoutInterval * 6);
     })
   }
+
+  getAllServices() {
+    let lastDoc = this.serviceLastDoc.value;
+    let queryRef = query(
+      this.getQueryRef(CONSTANTS.SERVICES_COLLECTION, 'serviceStatus', 'addedOn', true),
+      startAfter(lastDoc)
+    );
+
+    const unsub = onSnapshot(queryRef, (snapshot) => {
+      this.serviceSubject.next(snapshot.docs.map(ele => ele.data()))
+      this.getWindowRef().setTimeout(() => unsub(), this.timeoutInterval * 6);
+    })
+  }
+
 
   getAllVisas() {
     let lastDoc = this.visaLastDoc.value

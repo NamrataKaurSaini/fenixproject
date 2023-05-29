@@ -1,14 +1,14 @@
 <div class="container-fluid m-0 p-0 ">
     <div class="bg-image p-5 "
       style="background-image: url('https://images.unsplash.com/photo-1554123168-b400f9c806ca?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'); background-position: center center; background-repeat: no-repeat; background-size: cover;">
-      <div class="fw-bold text-center text-white p-lg-5 mx-auto my-5">
+      <div class="fw-bold text-center text-white p-lg-5 mx-auto my-5 animated fadeInDown">
         <h1 class="">GALLERY</h1>
       </div>
     </div>
   </div>
 
 <div class="container mt-5 mb-2">
-    <div class="row">
+    <div class="row animated fadeInUp">
         <div class="col-12 col-sm-6 col-lg-4 mb-4" *ngFor="let gallery of galleryList; index as idx">
             <div class="card">
                 <a [href]="gallery.imageUrl" target="_blank">
