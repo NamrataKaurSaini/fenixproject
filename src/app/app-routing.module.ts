@@ -8,6 +8,7 @@ import { ServicesComponent } from './pages/services/services.component';
 import { VisasComponent } from './pages/visas/visas.component';
 import { GalleryInstituteComponent } from './pages/gallery-institute/gallery-institute.component';
 import { GalleryResultsComponent } from './pages/gallery-results/gallery-results.component';
+import { GalleryVisaComponent } from './pages/gallery-visa/gallery-visa.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,9 +18,11 @@ const routes: Routes = [
     {path: 'services', component: ServicesComponent} ,
     {path: 'contact', component: ContactComponent},
 
-    {path: 'institute', component: GalleryInstituteComponent},
-    {path: 'result', component: GalleryResultsComponent},
-    {path: 'gallery', component: GalleryComponent}
+    {path: 'instituteGallery', component: GalleryInstituteComponent},
+    {path: 'resultGallery', component: GalleryResultsComponent},
+    {path: 'visaGallery', component: GalleryVisaComponent},
+    // {path: 'gallery', component: GalleryComponent}
+
 ];
 
 @NgModule({

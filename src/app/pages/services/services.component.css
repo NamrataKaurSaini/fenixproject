@@ -21,4 +21,12 @@
     }
   }
 
+  .banner{
+    background:
+    linear-gradient(to right, rgba(20, 23, 23) 0%, transparent)0% 0%,
+    url('https://img.freepik.com/free-photo/business-man-financial-inspector-secretary-making-report-calculating-checking-balance-internal-revenue-service-inspector-checking-document-audit-concept_1423-126.jpg');
+    padding:160px;
+    background-size:cover;
+    background-position: center center;
+  }
   

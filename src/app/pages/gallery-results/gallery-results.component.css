@@ -1,0 +1,8 @@
+.banner{
+    background:
+    linear-gradient(to right, rgba(20, 23, 23) 0%, transparent)0% 0%,
+    url('https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-102091.jpg');
+    padding:60px;
+    background-size:cover;
+    background-position: center center;
+  }

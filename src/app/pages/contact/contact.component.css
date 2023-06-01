@@ -2,3 +2,12 @@
     height: 530px;
     width: 100%;
 }
+
+.banner{
+    background:
+    linear-gradient(to left, rgba(20, 23, 23) 0%, transparent)0% 0%,
+    url('https://st3.depositphotos.com/1010613/32213/i/600/depositphotos_322133934-stock-photo-white-popular-contact-web-icons.jpg');
+    padding:60px ;
+    background-size:cover;
+    background-position: center center;
+  }

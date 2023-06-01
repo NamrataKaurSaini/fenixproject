@@ -21,6 +21,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { environment } from 'src/environments/environment.development';
 import { GalleryInstituteComponent } from './pages/gallery-institute/gallery-institute.component';
 import { GalleryResultsComponent } from './pages/gallery-results/gallery-results.component';
+import { GalleryVisaComponent } from './pages/gallery-visa/gallery-visa.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { GalleryResultsComponent } from './pages/gallery-results/gallery-results
     FooterComponent,
     GalleryComponent,
     GalleryInstituteComponent,
-    GalleryResultsComponent
+    GalleryResultsComponent,
+    GalleryVisaComponent
   ],
   imports: [
     BrowserModule,

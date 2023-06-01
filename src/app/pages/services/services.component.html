@@ -1,13 +1,12 @@
-<div class="container-fluid m-0 p-0 ">
-  <div class="bg-image p-5 "
-    style="background-image: url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80'); background-position: center center; background-repeat: no-repeat; background-size: cover;">
-    <div class="fw-bold text-center text-white p-lg-5 mx-auto my-5 animated fadeInDown">
-      <h1 class="">OUR SERVICES</h1>
+<div class="container-fluid p-0 m-0">
+  <div class="banner">
+    <div class="row justify-content-center">
+      <div class="col-lg-9 col-md-6 align-self-center text-center">
+        <!-- <h1 class="title text-white ">VISA</h1> -->
+      </div>
     </div>
   </div>
 </div>
-
-
 
 
 <div class="container mt-5">
@@ -35,14 +34,19 @@
 </div>
 
 
+<div class="container mt-5 pt-5">
+  <div class="row">
+    <h1 class="text-center" >TESTIMONIALS</h1>
+  </div>
+  </div>
 
-<div class="container mt-2 my-4 ">
+<div class="container mt-2 my-4 mb-5 ">
   <div class="row  ">
     <div class="slider col-12 text-center mb-3">
       <ngb-carousel [interval]="4500" [keyboard]="true" [wrap]="true" [animation]="true" [showNavigationIndicators]="false" [showNavigationArrows]="true">
         <ng-template ngbSlide *ngFor="let testimonial of testimonialList" class="rounded">
           <div class="rounded">
-            <img loading="eager" class="rounded-circle shadow-1-strong my-4" [src]="testimonial.imageUrl" style="width: 80px;">
+            <img loading="eager" class="rounded-circle shadow-1-strong my-4" [src]="testimonial.imageUrl" style="width: 180px; height: 180px;">
             <div class=" row d-flex justify-content-center ">
               <div class="col-lg-3" style="width: 100%">
                 <h5 class="my-3">{{testimonial.title}}</h5>
@@ -59,3 +63,35 @@
   </div>
 </div>
 
+  <!-- <div class="container my-4 ">
+     <ngb-carousel [interval]="3500" [keyboard]="true" [wrap]="true" [animation]="true" [showNavigationIndicators]="true" [showNavigationArrows]="true">
+       <ng-template ngbSlide *ngFor="let testimonial of testimonialList" class="rounded" >
+         <div class="row d-flex justify-content-center">
+           <div class="slider col-12 text-center mb-3">
+              <div class="col-lg-4" style="width: 100%">
+
+                <div class="card text-start">
+                  <img class="card-img-top" [src]="testimonial.imageUrl" style="width: 150px;" alt="Title">
+                  <div class="card-body">
+                    <h4 class="card-title">Title</h4>
+                    <p class="card-text">Body</p>
+                  </div>
+                </div> -->
+               <!-- <div class="card" style="border:none; background-color: transparent;">
+                 <div class="card-body">
+               <img loading="eager" class="rounded-circle shadow-1-strong mb-4"
+               [src]="testimonial.imageUrl" alt="avatar"
+                 style="width: 150px;" />
+               <h5 class="mb-3">{{testimonial.title}}</h5>
+               <p class="text-muted">
+                 <i class="fas fa-quote-left pe-2"></i>
+                 "{{testimonial.description}}"
+               </p>
+             </div>
+             </div> -->
+           <!-- </div>
+         </div>
+       </div>
+         </ng-template>
+        </ngb-carousel>
+     </div> -->
