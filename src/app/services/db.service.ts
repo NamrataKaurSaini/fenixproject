@@ -112,13 +112,10 @@ export class DbService {
   getGalleryImages() {
     let queryRef = query(
       this.getQueryRef(CONSTANTS.GALLERY_COLLECTION, 'galleryStatus', 'addedOn', true),
-      // limit(this.$HOME_DOC_LIMIT)
     );
   
     const unsub = onSnapshot(queryRef, (snapshot) => {
-      // this.isImagesAvailable = snapshot.size === this.$HOME_DOC_LIMIT
       this.homeGallerySubject.next(snapshot.docs.map((ele) => {
-        // this.galleryLastDoc.next(ele);
         return ele.data();
       }));
       this.getWindowRef().setTimeout(() => unsub(), this.timeoutInterval * 6);
@@ -128,13 +125,10 @@ export class DbService {
   getInstituteGallery() {
     let queryRef = query(
       this.getQueryRef(CONSTANTS.INSTITUTE_GALLERY_COLLECTION, 'galleryStatus', 'addedOn', true),
-      // limit(this.$HOME_DOC_LIMIT)
     );
   
     const unsub = onSnapshot(queryRef, (snapshot) => {
-      // this.isImagesAvailable = snapshot.size === this.$HOME_DOC_LIMIT
       this.instituteGallerySubject.next(snapshot.docs.map((ele) => {
-        // this.galleryLastDoc.next(ele);
         return ele.data();
       }));
       this.getWindowRef().setTimeout(() => unsub(), this.timeoutInterval * 6);
@@ -144,32 +138,15 @@ export class DbService {
   getResultGallery() {
     let queryRef = query(
       this.getQueryRef(CONSTANTS.RESULT_GALLERY_COLLECTION, 'galleryStatus', 'addedOn', true),
-      // limit(this.$HOME_DOC_LIMIT)
     );
   
     const unsub = onSnapshot(queryRef, (snapshot) => {
-      // this.isImagesAvailable = snapshot.size === this.$HOME_DOC_LIMIT
       this.resultGallerySubject.next(snapshot.docs.map((ele) => {
-        // this.galleryLastDoc.next(ele);
         return ele.data();
       }));
       this.getWindowRef().setTimeout(() => unsub(), this.timeoutInterval * 6);
     })
   }
-
-  // getAllGalleryImages() {
-  //   let lastDoc = this.galleryLastDoc.value;
-  //   let queryRef = query(
-  //     this.getQueryRef(CONSTANTS.GALLERY_COLLECTION, 'galleryStatus', 'addedOn', true),
-  //     startAfter(lastDoc)
-  //   );
-
-  //   const unsub = onSnapshot(queryRef, (snapshot) => {
-  //     this.gallerySubject.next(snapshot.docs.map(e => e.data()));
-  //     this.getWindowRef().setTimeout(() => unsub(), this.timeoutInterval * 6);
-  //   })
-  // }
-
 
 
   getHomeVisas() {

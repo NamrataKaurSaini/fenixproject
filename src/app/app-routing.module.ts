@@ -18,9 +18,9 @@ const routes: Routes = [
     {path: 'services', component: ServicesComponent} ,
     {path: 'contact', component: ContactComponent},
 
-    {path: 'instituteGallery', component: GalleryInstituteComponent},
-    {path: 'resultGallery', component: GalleryResultsComponent},
-    {path: 'visaGallery', component: GalleryVisaComponent},
+    {path: 'Gallery/instituteGallery', component: GalleryInstituteComponent},
+    {path: 'Gallery/resultGallery', component: GalleryResultsComponent},
+    {path: 'Gallery/visaGallery', component: GalleryVisaComponent},
     // {path: 'gallery', component: GalleryComponent}
 
 ];

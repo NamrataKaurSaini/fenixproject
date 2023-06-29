@@ -38,7 +38,9 @@ export class HomeComponent implements OnInit {
       enqueryId: [doc(collection(this.firestore, "enqueries")).id],
       name: ["", [Validators.required, Validators.pattern("[a-zA-Z ]*")]],
       email: ["",[Validators.required, Validators.email] ],
-      phone: [""]
+      query: ["",[Validators.required] ],
+      phone: [""],
+      date: [Timestamp.now()]
     })
   }
 
@@ -59,24 +61,15 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  // initEnquiryForm() {
-  //   this.enquiryForm = this.fb.group({
-  //     name: ["", [Validators.required, Validators.pattern("[a-zA-Z ]*")]],
-  //     phone: ["", [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern("[0-9]{10}$")]],
-  //     email: ["", [Validators.required, Validators.email]],
-  //     timestamp: [Timestamp.now()],
-  //   });
-  // }
   
   getDataFromDbService(){
-
     let visaSub = this.dbService.homeVisaSubject.subscribe((value) => {
       if(value.length !== 0){
         this.visaList = value
         this.dbService.getWindowRef().setTimeout(() => visaSub.unsubscribe(), this.dbService.timeoutInterval*60)
       }
     })
-
+    
     let serviceSub = this.dbService.homeServiceSubject.subscribe((value) =>{
       if(value.length !== 0){
         this.servicesList = value

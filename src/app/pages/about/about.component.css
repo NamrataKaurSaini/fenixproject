@@ -3,9 +3,32 @@ img {
     height: auto;
   }
 
+  .img1{
+    height:50% ;
+    width:70% ;
+  }
+
   @media(max-width: 990px){
     .card{
       margin: 20px;
+    }
+
+    .img1{
+      width: 90%;
+      height:90% ;
+      padding-bottom: 50px;
+      padding-left: 30px;
+    }
+  }
+
+
+  @media(max-width: 761px){
+
+    .img1{
+      width: 90%;
+      height:90% ;
+      padding-bottom: 50px;
+      padding-left: 30px;
     }
   }
 

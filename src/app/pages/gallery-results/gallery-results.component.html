@@ -2,17 +2,16 @@
   <div class="banner">
     <div class="row justify-content-center py-5 my-5">
       <div class="col-12 align-self-center text-center">
-        <h1 class="title text-white ">GALLERY</h1>
+        <h1 class="title text-white  animated fadeInDown" style="font-family: 'Times New Roman';">RESULT GALLERY</h1>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container mt-5 mb-2">
+<!-- <div class="container mt-5 mb-2">
   <div class="row ">
       <div class="col-12 col-sm-6 col-lg-4 mb-4">
         <div class="card text-start">
-          <!-- <img class="card-img-top" src="holder.js/100px180/" alt="Title"> -->
           <div class="card-body">
             <h4 class="card-title mb-4" style="font-family: popins;">Visa Gallery</h4>
             <button class="btn btn-info-gradiant text-white" routerLink="/visaGallery">View</button>
@@ -21,7 +20,6 @@
       </div>
       <div class="col-12 col-sm-6 col-lg-4 mb-4">
         <div class="card text-start">
-          <!-- <img class="card-img-top" src="holder.js/100px180/" alt="Title"> -->
           <div class="card-body">
             <h4 class="card-title mb-4" style="font-family: popins;">Institute Gallery</h4>
             <button class="btn btn-info-gradiant text-white" routerLink="/instituteGallery">View</button>
@@ -30,7 +28,6 @@
       </div>
       <div class="col-12 col-sm-6 col-lg-4 mb-4">
         <div class="card text-start">
-          <!-- <img class="card-img-top" src="holder.js/100px180/" alt="Title"> -->
           <div class="card-body">
             <h4 class="card-title mb-4" style="font-family: popins;">Result Gallery</h4>
             <button class="btn btn-info-gradiant text-white" routerLink="/resultGallery">View</button>
@@ -38,14 +35,14 @@
         </div>
       </div>
   </div>
-</div>
+</div> -->
 
-<div class="container mt-5 mb-2">
-    <div class="row">
+<div class="container my-5 py-5">
+    <div class="row animated fadeInUp">
         <div class="col-12 col-sm-6 col-lg-4 mb-4" *ngFor="let gallery of galleryList; index as idx">
             <div class="card">
                 <a [href]="gallery.imageUrl" target="_blank">
-                    <img loading="eager" [src]="gallery.imageUrl" class="card-img-top" style="width:100%; height: 270px">
+                    <img loading="eager" [src]="gallery.imageUrl" class="card-img-top" style="width:100%; height: 350px">
                 </a>
             </div>
         </div>
